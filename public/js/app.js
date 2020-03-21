@@ -2177,26 +2177,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'BlogPost',
   components: {
     Blogsidebar: _Blogsidebar__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  mounted: function mounted() {},
-  computed: {},
+  mounted: function mounted() {
+    this.$store.dispatch('getpostbyid', this.$route.params.id);
+  },
+  computed: {
+    singlepost: function singlepost() {
+      return this.$store.getters.getsinglepost;
+    }
+  },
   methods: {}
 });
 
@@ -60633,7 +60627,82 @@ var render = function() {
         _c(
           "div",
           { staticClass: "row" },
-          [_vm._m(1), _vm._v(" "), _c("Blogsidebar")],
+          [
+            _c("div", { staticClass: "span8" }, [
+              _c("article", [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "span8" }, [
+                    _c("div", { staticClass: "post-image" }, [
+                      _c("div", { staticClass: "post-heading" }, [
+                        _c("h3", [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v(" " + _vm._s(_vm.singlepost.title))
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        attrs: {
+                          src: "uploadimage/" + _vm.singlepost.photo,
+                          alt: ""
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        domProps: {
+                          innerHTML: _vm._s(_vm.singlepost.description)
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.singlepost.description))]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "bottom-article" }, [
+                      _c("ul", { staticClass: "meta-post" }, [
+                        _c("li", [
+                          _c("i", { staticClass: "icon-user" }),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v(" " + _vm._s(_vm.singlepost.user.name))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c("i", { staticClass: "icon-tags" }),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v(_vm._s(_vm.singlepost.category.cat_name))
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "about-author" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("h5", [
+                  _c("strong", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(_vm.singlepost.user.name))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n            Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper ad qui, est rebum nulla argumentum ei.\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(2)
+            ]),
+            _vm._v(" "),
+            _c("Blogsidebar")
+          ],
           1
         )
       ])
@@ -60681,167 +60750,101 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "span8" }, [
-      _c("article", [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "span8" }, [
-            _c("div", { staticClass: "post-image" }, [
-              _c("div", { staticClass: "post-heading" }, [
-                _c("h3", [_c("a", { attrs: { href: "#" } }, [_vm._v("title")])])
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "img/dummies/blog/img1.jpg", alt: "" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius\n                ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed. Dicam appetere ne qui, no has scripta appellantur. Mazim alienum appellantur eu cum, cu ullum officiis pro, pri at eius erat accusamus. Eos id\n                hinc fierent indoctum, ad accusam consetetur voluptatibus sit. His at quod impedit. Eu zril quando perfecto mel, sed eu eros debet.\n              "
-              )
-            ]),
-            _vm._v(" "),
-            _c("blockquote", [
-              _c("i", { staticClass: "icon-quote-left" }),
-              _vm._v(
-                " Lorem ipsum dolor sit amet, ei quod constituto qui. Summo labores expetendis ad quo, lorem luptatum et vis. No qui vidisse signiferumque...\n              "
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                Fierent adipisci iracundia est ei, usu timeam persius ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed. Dicam appetere ne qui, no has scripta appellantur. Mazim alienum appellantur eu cum, cu ullum officiis pro, pri\n                at eius erat accusamus.\n              "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "bottom-article" }, [
-              _c("ul", { staticClass: "meta-post" }, [
-                _c("li", [
-                  _c("i", { staticClass: "icon-user" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v(" Admin")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("i", { staticClass: "icon-folder-open" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v(" Blog")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("i", { staticClass: "icon-tags" }),
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Web design")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
+    return _c(
+      "a",
+      { staticClass: "thumbnail align-left", attrs: { href: "#" } },
+      [_c("img", { attrs: { src: "img/avatar.png", alt: "" } })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "comment-area" }, [
+      _c("h4", [_vm._v("4 Comments")]),
       _vm._v(" "),
-      _c("div", { staticClass: "about-author" }, [
-        _c("a", { staticClass: "thumbnail align-left", attrs: { href: "#" } }, [
+      _c("div", { staticClass: "media" }, [
+        _c("a", { staticClass: "thumbnail pull-left", attrs: { href: "#" } }, [
           _c("img", { attrs: { src: "img/avatar.png", alt: "" } })
         ]),
         _vm._v(" "),
-        _c("h5", [
-          _c("strong", [
-            _c("a", { attrs: { href: "#" } }, [_vm._v("John doe")])
+        _c("div", { staticClass: "media-body" }, [
+          _c("div", { staticClass: "media-content" }, [
+            _c("h6", [
+              _c("span", [_vm._v("March 12, 2013")]),
+              _vm._v(" Karen medisson")
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "\n                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("a", { staticClass: "align-right", attrs: { href: "#" } }, [
+              _vm._v("Reply comment")
+            ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n            Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper ad qui, est rebum nulla argumentum ei.\n          "
-          )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "comment-area" }, [
-        _c("h4", [_vm._v("4 Comments")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "media" }, [
-          _c(
-            "a",
-            { staticClass: "thumbnail pull-left", attrs: { href: "#" } },
-            [_c("img", { attrs: { src: "img/avatar.png", alt: "" } })]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "media-body" }, [
-            _c("div", { staticClass: "media-content" }, [
-              _c("h6", [
-                _c("span", [_vm._v("March 12, 2013")]),
-                _vm._v(" Karen medisson")
+      _c("h4", [_vm._v("Leave your comment")]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: {
+            id: "commentform",
+            action: "#",
+            method: "post",
+            name: "comment-form"
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "span4" }, [
+              _c("input", {
+                attrs: { type: "text", placeholder: "* Enter your full name" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "span4" }, [
+              _c("input", {
+                attrs: {
+                  type: "text",
+                  placeholder: "* Enter your email address"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "span4 margintop10" }, [
+              _c("input", {
+                attrs: { type: "text", placeholder: "Enter your website" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "span8 margintop10" }, [
+              _c("p", [
+                _c("textarea", {
+                  staticClass: "input-block-level",
+                  attrs: { rows: "12", placeholder: "*Your comment here" }
+                })
               ]),
               _vm._v(" "),
               _c("p", [
-                _vm._v(
-                  "\n                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.\n                "
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-theme margintop10",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("Submit comment")]
                 )
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "align-right", attrs: { href: "#" } }, [
-                _vm._v("Reply comment")
               ])
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("h4", [_vm._v("Leave your comment")]),
-        _vm._v(" "),
-        _c(
-          "form",
-          {
-            attrs: {
-              id: "commentform",
-              action: "#",
-              method: "post",
-              name: "comment-form"
-            }
-          },
-          [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "span4" }, [
-                _c("input", {
-                  attrs: { type: "text", placeholder: "* Enter your full name" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "span4" }, [
-                _c("input", {
-                  attrs: {
-                    type: "text",
-                    placeholder: "* Enter your email address"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "span4 margintop10" }, [
-                _c("input", {
-                  attrs: { type: "text", placeholder: "Enter your website" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "span8 margintop10" }, [
-                _c("p", [
-                  _c("textarea", {
-                    staticClass: "input-block-level",
-                    attrs: { rows: "12", placeholder: "*Your comment here" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-theme margintop10",
-                      attrs: { type: "submit" }
-                    },
-                    [_vm._v("Submit comment")]
-                  )
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
+        ]
+      )
     ])
   }
 ]
@@ -79532,7 +79535,8 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     category: [],
     post: [],
-    blogpost: []
+    blogpost: [],
+    singlepost: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -79543,6 +79547,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getblogpost: function getblogpost(state) {
       return state.blogpost;
+    },
+    getsinglepost: function getsinglepost(state) {
+      return state.singlepost;
     }
   },
   actions: {
@@ -79560,6 +79567,11 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/blogpost').then(function (response) {
         context.commit('allblogpost', response.data.posts);
       });
+    },
+    getpostbyid: function getpostbyid(context, payload) {
+      axios.get('/singlepost/' + payload).then(function (response) {
+        context.commit('singlepost', response.data.post);
+      });
     }
   },
   mutations: {
@@ -79571,6 +79583,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     allblogpost: function allblogpost(state, data) {
       return state.blogpost = data;
+    },
+    singlepost: function singlepost(state, payload) {
+      return state.singlepost = payload;
     }
   }
 });

@@ -5,6 +5,7 @@ export default{
         category:[],
         post:[],
         blogpost:[],
+        singlepost:[],
     },
     getters:{
         getCategory(state){
@@ -16,6 +17,9 @@ export default{
         getblogpost(state){
             return state.blogpost
         },
+        getsinglepost(state){
+            return state.singlepost
+        }
     },
     actions:{
         allCategory(context){
@@ -36,6 +40,11 @@ export default{
                 context.commit('allblogpost',response.data.posts)
             })
         },
+        getpostbyid(context,payload){
+            axios.get('/singlepost/'+payload).then((response)=>{
+                context.commit('singlepost',response.data.post)
+            })
+        }
 
     },
     mutations:{
@@ -47,6 +56,9 @@ export default{
         },
         allblogpost(state,data){
             return state.blogpost =data
+        },
+        singlepost(state,payload){
+            return state.singlepost = payload
         }
         },
     
