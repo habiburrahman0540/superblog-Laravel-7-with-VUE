@@ -106,7 +106,7 @@ export default {
       Blogsidebar
     },
     mounted() {
-     this.$store.dispatch('getpostbyid',this.$route.params.id);
+   this.postshow();
     },
     computed: {
       singlepost(){
@@ -114,8 +114,15 @@ export default {
       }
     },
     methods: {
-      
+      postshow(){
+          this.$store.dispatch('getpostbyid',this.$route.params.id);
+      }
     },
+    watch:{
+      $route(to,from){
+        this.postshow();
+      }
+    }
    
   }
 </script>
