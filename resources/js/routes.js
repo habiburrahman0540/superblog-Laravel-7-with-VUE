@@ -10,6 +10,7 @@ import editPost from './components/admin/post/Edit'
 import publicHome from './components/Public/PublicHome'
 import publicblog from './components/Public/blog/BlogPost.vue'
 import Singlepost from './components/Public/blog/SingleBlog.vue'
+import PostCategory from './components/Public/blog/categorypost.vue'
 export const routes = [
     {
         path: '/home',
@@ -46,5 +47,9 @@ export const routes = [
 {
   path:'/singlepost/:id',
   component:Singlepost
+},
+{
+  path:'/postcategory/:id',
+  component:PostCategory
 },
 ]

@@ -7,6 +7,8 @@ export default{
         blogpost:[],
         singlepost:[],
         allcategory:[],
+        postbycategory:[],
+
     },
     getters:{
         getCategory(state){
@@ -23,6 +25,9 @@ export default{
         },
         allcategory(state){
             return state.allcategory
+        },
+        allpostbycatid(state){
+           return state.postbycategory
         }
     },
     actions:{
@@ -54,7 +59,17 @@ export default{
             then((response)=>{
                 context.commit('allcategories',response.data.allcategory)
             })
-        }
+        },
+        allpostbycategoryid(context,payload){
+            axios.get('/postcategory/'+payload).then((response)=>{
+                context.commit('allpostsbycatid',response.data.postbycat)
+                    })
+        },
+        searchallpost(context,payload){
+            axios.get('search?search='+payload).then((response)=>{
+                context.commit('searchallpost',response.data.posts)
+            })
+        },
 
     },
     mutations:{
@@ -72,6 +87,12 @@ export default{
         },
         allcategories(state,payload){
             return state.allcategory = payload
+        },
+        allpostsbycatid(state,payload){
+            return state.postbycategory =payload
+        },
+        searchallpost(state,payload){
+            return state.blogpost =payload
         }
         }
         

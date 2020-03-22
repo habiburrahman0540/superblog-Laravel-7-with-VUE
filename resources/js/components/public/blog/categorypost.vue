@@ -5,7 +5,7 @@
         <div class="row">
           <div class="span4">
             <div class="inner-heading">
-              <h2>All Blog Post</h2>
+              <h2>All post by Category</h2>
             </div>
           </div>
           <div class="span8">
@@ -22,12 +22,13 @@
       <div class="container">
         <div class="row">
           <div class="span8">
-            <article v-for="posts in blogpost">
+            <article v-for="posts in categorypost">
               <div class="row">
                 <div class="span8">
                   <div class="post-image">
                     <div class="post-heading">
                       <h3><a href="#">{{posts.title}}</a></h3>
+                      
                     </div>
                     <img :src="`uploadimage/${posts.photo}`" alt="" />
                   </div>
@@ -69,16 +70,23 @@ export default {
       Blogsidebar
     },
     mounted() {
-      return this.$store.dispatch('allblogposts')
+      this.showpostbycatid();
     },
     computed: {
-      blogpost(){
-        return this.$store.getters.getblogpost
+      categorypost(){
+        return this.$store.getters.allpostbycatid
       }
     },
     methods: {
-      
+      showpostbycatid(){
+          return this.$store.dispatch('allpostbycategoryid',this.$route.params.id)
+      }
     },
+    watch:{
+        $route(to,from){
+            this.showpostbycatid();
+        }
+    }
    
   }
 </script>

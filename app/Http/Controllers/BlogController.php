@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
 
 class BlogController extends Controller
 {
@@ -25,6 +26,23 @@ class BlogController extends Controller
         $allcategory = Category::all();
         return response()->json([
             'allcategory'=> $allcategory
+        ]);
+    }
+    public function all_post_by_category_id($id){
+        $postbycatid = Post::with('user','category')->where('cat_id',$id)->orderBy('id','desc')->get();
+        return response()->json([
+            'postbycat'=>$postbycatid 
+        ]);
+
+    }
+    public function searchpost(){
+        $search = \Request::get('search');
+        $Searchpost = Post::with('user','category')
+                    ->where('title','LIKE',"%$search%")
+                    ->orWhere('description','LIKE',"$search")
+                    ->get();
+        return response()->json([
+            "posts"=> $Searchpost
         ]);
     }
 }
